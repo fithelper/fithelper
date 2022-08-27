@@ -24,6 +24,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:fithelper, type:e2e"],
   "implicitDependencies": ["fithelper-front"]
 }
