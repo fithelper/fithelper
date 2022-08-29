@@ -15,7 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@fithelper/fithelper-front/login/feature": [
+        "libs/fithelper-front/login/feature/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/login/feature-shell": [
+        "libs/fithelper-front/login/feature-shell/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

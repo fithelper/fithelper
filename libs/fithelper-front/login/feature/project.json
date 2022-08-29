@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/fithelper-front/login/feature/src",
+  "prefix": "fithelper",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/fithelper-front/login/feature"],
+      "options": {
+        "jestConfig": "libs/fithelper-front/login/feature/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/fithelper-front/login/feature/**/*.ts",
+          "libs/fithelper-front/login/feature/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:fithelper", "type:feature"]
+}
