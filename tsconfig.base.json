@@ -16,6 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@fithelper/fithelper-front/home/feature": [
+        "libs/fithelper-front/home/feature/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/home/feature-shell": [
+        "libs/fithelper-front/home/feature-shell/src/index.ts"
+      ],
       "@fithelper/fithelper-front/login/feature": [
         "libs/fithelper-front/login/feature/src/index.ts"
       ],

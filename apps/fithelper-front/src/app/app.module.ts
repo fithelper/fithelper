@@ -8,7 +8,13 @@ import { AppComponent } from './app.component';
 export const routes: Route[] = [
   {
     path: '',
-    pathMatch: 'full',
+    loadChildren: () =>
+      import('@fithelper/fithelper-front/home/feature-shell').then(
+        (module) => module.FithelperFrontHomeFeatureShellModule
+      ),
+  },
+  {
+    path: 'login',
     loadChildren: () =>
       import('@fithelper/fithelper-front/login/feature-shell').then(
         (module) => module.FithelperFrontLoginFeatureShellModule
