@@ -1,3 +1,5 @@
+import { Users } from "../modules/user/entities/users.entity";
+
 export const environment = process.env.NODE_ENV || 'local';
 export const isDev = !['production', 'preprod', 'test', 'staging'].includes(environment);
 export const isTest = process.env.NODE_ENV === 'test';
@@ -18,7 +20,7 @@ export default () => ({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME || 'app',
-    entities: [`${__dirname}/../**/*.entity{.ts,.js}`],
+    entities: [Users],
     synchronize: process.env.DB_SYNCHRONIZE === 'true',
     createFixtures: isSwagger ? false : process.env.DB_FIXTURES !== 'false', // isDev,
   },
