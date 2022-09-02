@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UsersOutputDto } from '../dto/ouptout-user.dto';
 import { Users } from '../entities/users.entity';
 
 @Injectable()
@@ -10,8 +12,8 @@ export class UserService {
     private UserRepository: Repository<Users>
   ) {}
 
-  //TODO: dto hash password 
-  create(user: Users): Promise<Users> {
+  //TODO: dto hash password
+  create(user: CreateUserDto): Promise<UsersOutputDto> {
     const newUser = this.UserRepository.create(user);
     return this.UserRepository.save(newUser);
   }
@@ -28,7 +30,7 @@ export class UserService {
   async update(id: string, attrs: Partial<Users>) {
     const user = await this.findOne(id);
     if (!user) {
-      throw new NotFoundException('book not found');
+      throw new NotFoundException('user not found');
     }
     const newUser = {
       ...user,

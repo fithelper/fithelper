@@ -1,9 +1,7 @@
 import { Expose } from 'class-transformer';
-import * as bcrypt from 'bcrypt';
 
 import {
   BaseEntity,
-  BeforeInsert,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -13,20 +11,16 @@ import {
 } from 'typeorm';
 
 @Entity({
-  name: 'Users',
+  name: 'Weight',
 })
-export class Users extends BaseEntity {
+export class Weight extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   @Expose()
   id: string;
 
-  @Column({ type: 'varchar', length: 100, nullable: true })
+  @Column({ type: 'int', name: 'weight' })
   @Expose()
-  email: string;
-
-  @Column({ type: 'varchar', nullable: true })
-  @Expose()
-  password: string;
+  weight: number;
 
   @CreateDateColumn({
     type: 'timestamp',
@@ -48,15 +42,4 @@ export class Users extends BaseEntity {
   })
   @Expose()
   deleteAt: Date;
-
-  @BeforeInsert()
-  async hashPassword() {
-    this.password = await bcrypt.hash(
-      this.password,
-      Number(process.env.HASH_SALT)
-    );
-  }
-
-  //TODO: relation with weight
-  //oneToMany
 }
