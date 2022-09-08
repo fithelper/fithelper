@@ -20,6 +20,13 @@ export const routes: Route[] = [
         (module) => module.FithelperFrontLoginFeatureShellModule
       ),
   },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('@fithelper/fithelper-front/register/feature-shell').then(
+        (module) => module.FithelperFrontRegisterFeatureShellModule
+      ),
+  },
 ]
 
 @NgModule({

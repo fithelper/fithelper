@@ -9,6 +9,8 @@
     "fithelper-front-home-feature": "libs/fithelper-front/home/feature",
     "fithelper-front-home-feature-shell": "libs/fithelper-front/home/feature-shell",
     "fithelper-front-login-feature": "libs/fithelper-front/login/feature",
-    "fithelper-front-login-feature-shell": "libs/fithelper-front/login/feature-shell"
+    "fithelper-front-login-feature-shell": "libs/fithelper-front/login/feature-shell",
+    "fithelper-front-register-feature": "libs/fithelper-front/register/feature",
+    "fithelper-front-register-feature-shell": "libs/fithelper-front/register/feature-shell"
   }
 }
