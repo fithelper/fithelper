@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    container_name: pg_container
+    container_name: fitHelper_db_container
     image: postgres
     restart: always
     environment:
@@ -10,12 +10,3 @@ services:
       POSTGRES_DB:  fithelper_db
     ports:
       - "5432:5432"
-  pgadmin:
-    container_name: pgadmin4_container
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: gilles.ferrand31@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: GJRJWcKmm5AH6sUG
-    ports:
-      - "5050:80"
