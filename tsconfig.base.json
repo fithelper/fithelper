@@ -15,7 +15,25 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@fithelper/fithelper-front/home/feature": [
+        "libs/fithelper-front/home/feature/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/home/feature-shell": [
+        "libs/fithelper-front/home/feature-shell/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/login/feature": [
+        "libs/fithelper-front/login/feature/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/login/feature-shell": [
+        "libs/fithelper-front/login/feature-shell/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/register/feature": [
+        "libs/fithelper-front/register/feature/src/index.ts"
+      ],
+      "@fithelper/fithelper-front/register/feature-shell": [
+        "libs/fithelper-front/register/feature-shell/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
