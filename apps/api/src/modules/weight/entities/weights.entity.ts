@@ -6,9 +6,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Users } from '../../user/entities/users.entity';
 
 @Entity({
   name: 'Weight',
@@ -42,4 +44,7 @@ export class Weight extends BaseEntity {
   })
   @Expose()
   deleteAt: Date;
+
+  @ManyToOne(() => Users, (user) => user.weight)
+  user: Users;
 }

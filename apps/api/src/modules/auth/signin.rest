@@ -1,0 +1,18 @@
+POST http://localhost:3000/api/auth/local/signup HTTP/1.1
+content-type: application/json
+
+{
+    "email": "toto",
+    "password": "xxxxx123"
+}
+
+###
+
+
+POST http://localhost:3000/api/auth/local/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "toto",
+    "password": "xxxxx123"
+}

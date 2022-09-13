@@ -4,6 +4,7 @@ import configuration from './configurations/app.configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './modules/user/users.module';
 import { WeightModule } from './modules/weight/weight.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { WeightModule } from './modules/weight/weight.module';
     }),
     UsersModule,
     WeightModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

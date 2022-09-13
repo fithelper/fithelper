@@ -9,21 +9,24 @@ import { Users } from '../entities/users.entity';
 export class UserService {
   constructor(
     @InjectRepository(Users)
-    private UserRepository: Repository<Users>
+    private userRepository: Repository<Users>
   ) {}
 
   //TODO: dto hash password
   create(user: CreateUserDto): Promise<UsersOutputDto> {
-    const newUser = this.UserRepository.create(user);
-    return this.UserRepository.save(newUser);
+    const newUser = this.userRepository.create(user);
+    return this.userRepository.save(newUser);
   }
 
   findOne(id: string): Promise<Users> | null {
-    return this.UserRepository.findOneBy({ id });
+    return this.userRepository.findOne({
+      where: { id },
+      relations: ['weight'],
+    });
   }
 
   findAll(): Promise<Users[]> {
-    return this.UserRepository.find();
+    return this.userRepository.find();
   }
 
   //TODO: dto
@@ -37,7 +40,7 @@ export class UserService {
       ...attrs,
     };
 
-    return this.UserRepository.save(newUser);
+    return this.userRepository.save(newUser);
   }
 
   async remove(id: string): Promise<Users> {
@@ -45,7 +48,7 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('user not found');
     }
-    return this.UserRepository.remove(user);
+    return this.userRepository.remove(user);
   }
 
   async softRemove(id: string): Promise<Users> {
@@ -53,6 +56,6 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('user not found');
     }
-    return this.UserRepository.softRemove(user);
+    return this.userRepository.softRemove(user);
   }
 }

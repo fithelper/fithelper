@@ -8,9 +8,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Weight } from '../../weight/entities/weights.entity';
 
 @Entity({
   name: 'Users',
@@ -56,7 +58,7 @@ export class Users extends BaseEntity {
       Number(process.env.HASH_SALT)
     );
   }
+  @OneToMany(() => Weight, (weight) => weight.user)
+  weight: Weight[];
 
-  //TODO: relation with weight
-  //oneToMany
 }
