@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Route } from '@angular/router';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
@@ -32,7 +33,9 @@ export const routes: Route[] = [
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [
+    {provide: 'baseUrl', useValue: environment.apiUrl}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
