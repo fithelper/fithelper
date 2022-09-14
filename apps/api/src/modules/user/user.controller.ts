@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { GetCurrentUserById } from '../../utils';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UsersOutputDto } from './dto/ouptout-user.dto';
+import { UsersOutputDto } from './dto/output-user.dto';
 import { Users } from './entities/users.entity';
 import { UserService } from './services/users.service';
 

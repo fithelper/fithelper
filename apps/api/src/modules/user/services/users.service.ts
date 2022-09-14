@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { UsersOutputDto } from '../dto/ouptout-user.dto';
+import { UsersOutputDto } from '../dto/output-user.dto';
 import { Users } from '../entities/users.entity';
 
 @Injectable()
@@ -12,7 +12,6 @@ export class UserService {
     private userRepository: Repository<Users>
   ) {}
 
-  //TODO: dto hash password
   create(user: CreateUserDto): Promise<UsersOutputDto> {
     const newUser = this.userRepository.create(user);
     return this.userRepository.save(newUser);
