@@ -23,13 +23,14 @@ export class WeightService {
       throw new NotFoundException('user not found ! ');
     }
     const newWeight = this.weightRepository.create(weight);
-    const weights = user.weight ? user.weight : [];
+    newWeight.user = user
+    // const weights = user.weight ? user.weight : [];
 
     const saveWeight = await this.weightRepository.save(newWeight);
-    await this.userRepository.save({
-      ...user,
-      weight: weights.concat(newWeight),
-    });
+    // await this.userRepository.save({
+    //   ...user,
+    //   weight: weights.concat(newWeight),
+    // });
     return saveWeight;
   }
 }

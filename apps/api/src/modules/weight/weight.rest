@@ -3,7 +3,7 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZDc5OTVjNS05MjFkLTQzNGQtOTk0Mi01NmU3MWU2ZDU5MDYiLCJlbWFpbCI6IiQyYiQxMCR1UXNwN0FJWlBVWUFxai84MDlXcHplUUVmd1JnMkNhdGdLQUVhUmVoYnU5VEZ0QjYzak80YSIsImNsYWltIjoidXNlciIsImlhdCI6MTY2Mjc0NDAwOH0.7IfFJWqZnBTXcgErZ2ssswo9ks3acd83DUUbT5mbJuk
 
 {
-    "weight": 80
+    "weight": 89
 }
 
 ###
