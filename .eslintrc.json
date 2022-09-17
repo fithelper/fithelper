@@ -14,7 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:fithelper",
-                "onlyDependOnLibsWithTags": ["type:feature"]
+                "onlyDependOnLibsWithTags": ["type:feature", "type:data-access", "type:util", "type:ui"]
               },
               {
                 "sourceTag": "scope:api",
