@@ -1,4 +1,27 @@
-<button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        (click)="register('tata@email.com', '456789')">
-  Register
-</button>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email">
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="">
+      <div *ngIf="email?.errors?.['required']">
+        Email is required
+      </div>
+      <div *ngIf="email?.errors?.['email']">
+        Email is invalid
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+    <div *ngIf="password?.invalid && password?.touched" class="">
+      <div *ngIf="password?.errors?.['required']">
+        Password is required
+      </div>
+      <div *ngIf="password?.errors?.['minlength']">
+        Password must be at least 8 characters
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="" [disabled]="registerForm.invalid">Submit</button>
+</form>
