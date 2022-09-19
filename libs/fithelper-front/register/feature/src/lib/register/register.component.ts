@@ -20,12 +20,8 @@ export class RegisterComponent {
     get password() { return this.registerForm.get('password'); }
 
     register(): void {
-      // Get form values
-      const email = this.registerForm.get('email')?.value;
-      const password = this.registerForm.get('password')?.value;
-      console.warn(email, password);
-      if (email && password) {
-        this.registerService.register(email, password).subscribe();
+      if (this.email?.value && this.password?.value) {
+        this.registerService.register(this.email?.value, this.password?.value).subscribe();
       }
     }
 }
