@@ -8,3 +8,7 @@ export class CreateUserDto implements Partial<Users> {
   @IsString()
   password: string;
 }
+
+// export interface ICreateUser extends CreateUserDto {
+//   test: string;
+// }

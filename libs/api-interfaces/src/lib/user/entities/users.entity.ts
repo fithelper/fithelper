@@ -12,7 +12,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Weight } from '../../weight/entities/weights.entity';
+import { Weight } from '../../weight';
 
 @Entity({
   name: 'Users',
