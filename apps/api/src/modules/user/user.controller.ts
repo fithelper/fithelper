@@ -29,6 +29,8 @@ export class UsersController {
   findUserById(@GetCurrentUserById() id: string): Promise<UsersOutputDto> {
     return this.userService.findOne(id);
   }
+  
+  
 
   
 }

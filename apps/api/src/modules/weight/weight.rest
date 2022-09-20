@@ -8,12 +8,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZDc5OTVjN
 
 ###
 
-PATCH  http://localhost:3000/api/weight/af57e755-de12-480e-bb42-52637ee1cbc2 HTTP/1.1
+PATCH  http://localhost:3000/api/weight/2c046066-53e0-4c77-9295-a36444ad8cfb HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZDc5OTVjNS05MjFkLTQzNGQtOTk0Mi01NmU3MWU2ZDU5MDYiLCJlbWFpbCI6IiQyYiQxMCR1UXNwN0FJWlBVWUFxai84MDlXcHplUUVmd1JnMkNhdGdLQUVhUmVoYnU5VEZ0QjYzak80YSIsImNsYWltIjoidXNlciIsImlhdCI6MTY2Mjc0NDAwOH0.7IfFJWqZnBTXcgErZ2ssswo9ks3acd83DUUbT5mbJuk
 
 {
-    "weight": 80
+    "weight": 66
 }
 
 ###
+
+DELETE   http://localhost:3000/api/weight/2c046066-53e0-4c77-9295-a36444ad8cfb HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZDc5OTVjNS05MjFkLTQzNGQtOTk0Mi01NmU3MWU2ZDU5MDYiLCJlbWFpbCI6IiQyYiQxMCR1UXNwN0FJWlBVWUFxai84MDlXcHplUUVmd1JnMkNhdGdLQUVhUmVoYnU5VEZ0QjYzak80YSIsImNsYWltIjoidXNlciIsImlhdCI6MTY2Mjc0NDAwOH0.7IfFJWqZnBTXcgErZ2ssswo9ks3acd83DUUbT5mbJuk
+
+### 
+
+GET http://localhost:3000/api/weight HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ZDc5OTVjNS05MjFkLTQzNGQtOTk0Mi01NmU3MWU2ZDU5MDYiLCJlbWFpbCI6IiQyYiQxMCR1UXNwN0FJWlBVWUFxai84MDlXcHplUUVmd1JnMkNhdGdLQUVhUmVoYnU5VEZ0QjYzak80YSIsImNsYWltIjoidXNlciIsImlhdCI6MTY2Mjc0NDAwOH0.7IfFJWqZnBTXcgErZ2ssswo9ks3acd83DUUbT5mbJuk
