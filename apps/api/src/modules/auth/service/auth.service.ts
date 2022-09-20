@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Users } from '../../user/entities/users.entity';
+import { Users } from '@fithelper/api-interfaces';
 import { AuthDto } from '../dto';
 import * as bcrypt from 'bcrypt';
 

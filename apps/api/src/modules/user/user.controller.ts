@@ -2,9 +2,11 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { GetCurrentUserById } from '../../utils';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UsersOutputDto } from './dto/output-user.dto';
-import { Users } from './entities/users.entity';
+import {
+  Users,
+  CreateUserDto,
+  UsersOutputDto,
+} from '@fithelper/api-interfaces';
 import { UserService } from './services/users.service';
 
 @ApiTags('users')
@@ -29,8 +31,4 @@ export class UsersController {
   findUserById(@GetCurrentUserById() id: string): Promise<UsersOutputDto> {
     return this.userService.findOne(id);
   }
-  
-  
-
-  
 }

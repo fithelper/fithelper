@@ -7,15 +7,16 @@ import {
   Param,
   Patch,
   Post,
-  Put,
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation } from '@nestjs/swagger';
 import { GetCurrentUserById } from '../../utils';
-import { CreateWeightDto } from './dto/create-weight.dto';
-import { WeightOutputDto } from './dto/output-weight.dto';
-import { UpdateWeightDto } from './dto/update-weight.dto';
+import {
+  CreateWeightDto,
+  WeightOutputDto,
+  UpdateWeightDto,
+} from '@fithelper/api-interfaces';
 import { WeightService } from './services/weight.service';
 
 @Controller('weight')
@@ -59,5 +60,4 @@ export class WeightController {
   ): Promise<WeightOutputDto> {
     return this.weightService.softRemove(id, userId);
   }
-
 }

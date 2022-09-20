@@ -1,9 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { UsersOutputDto } from '../dto/output-user.dto';
-import { Users } from '../entities/users.entity';
+import {
+  CreateUserDto,
+  UsersOutputDto,
+  Users,
+} from '@fithelper/api-interfaces';
 
 @Injectable()
 export class UserService {

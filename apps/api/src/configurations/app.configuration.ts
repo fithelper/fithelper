@@ -1,5 +1,4 @@
-import { Users } from '../modules/user/entities/users.entity';
-import { Weight } from '../modules/weight/entities/weights.entity';
+import { Users,Weight } from '@fithelper/api-interfaces';
 
 export const environment = process.env.NODE_ENV || 'local';
 export const isDev = !['production', 'preprod', 'test', 'staging'].includes(

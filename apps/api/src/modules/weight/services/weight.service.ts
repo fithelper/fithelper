@@ -1,12 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { concat } from 'rxjs';
 import { Repository } from 'typeorm';
-import { Users } from '../../user/entities/users.entity';
-import { CreateWeightDto } from '../dto/create-weight.dto';
-import { WeightOutputDto } from '../dto/output-weight.dto';
-import { UpdateWeightDto } from '../dto/update-weight.dto';
-import { Weight } from '../entities/weights.entity';
+import {
+  Users,
+  CreateWeightDto,
+  WeightOutputDto,
+  UpdateWeightDto,
+  Weight,
+} from '@fithelper/api-interfaces';
+
 
 @Injectable()
 export class WeightService {
@@ -26,7 +28,7 @@ export class WeightService {
     if (!user) {
       throw new NotFoundException('user not found ! ');
     }
-    return user.weight ?? []
+    return user.weight ?? [];
   }
 
   async create(weight: CreateWeightDto, id: string): Promise<WeightOutputDto> {
