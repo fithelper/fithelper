@@ -1,27 +1,30 @@
 import { Component } from '@angular/core';
-import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 import { RegisterService } from "@fithelper/fithelper-front/register/data-access";
+
+interface RegisterForm {
+  email: FormControl<string>;
+  password: FormControl<string>;
+}
 
 @Component({
   selector: 'fithelper-register',
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
-    constructor(private readonly fb: NonNullableFormBuilder, private readonly registerService: RegisterService) { }
+    registerForm!: FormGroup<RegisterForm>;
 
-    registerForm = this.fb.group({
-        email: new FormControl<string>('', [Validators.required, Validators.email]),
-        password: new FormControl<string>('', [Validators.required, Validators.minLength(8)])
-    });
-
-    get email() { return this.registerForm.get('email'); }
-
-    get password() { return this.registerForm.get('password'); }
+    constructor(private readonly fb: FormBuilder, private readonly registerService: RegisterService) {
+      this.registerForm = this.fb.group({
+        email: new FormControl<string>('', {validators: [Validators.required, Validators.email], nonNullable: true}),
+        password: new FormControl<string>('', {validators: [Validators.required, Validators.minLength(8)], nonNullable: true}),
+      });
+    }
 
     register(): void {
-      if (this.email?.value && this.password?.value) {
-        this.registerService.register(this.email?.value, this.password?.value).subscribe();
+      if (this.registerForm.valid && this.registerForm.value.email && this.registerForm.value.password) {
+        this.registerService.register(this.registerForm.value.email, this.registerForm.value.password).subscribe();
       }
     }
 }
