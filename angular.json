@@ -4,6 +4,10 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "fit-helper-api--auth": "libs/fit-helper-api/auth",
+    "fit-helper-api--macro": "libs/fit-helper-api/macro",
+    "fit-helper-api--users": "libs/fit-helper-api/users",
+    "fit-helper-api--weights": "libs/fit-helper-api/weights",
     "fithelper-front": "apps/fithelper-front",
     "fithelper-front-e2e": "apps/fithelper-front-e2e",
     "fithelper-front-home-feature": "libs/fithelper-front/home/feature",

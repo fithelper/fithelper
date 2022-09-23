@@ -1,5 +1,6 @@
-import { Users } from '../modules/user/entities/users.entity';
-import { Weight } from '../modules/weight/entities/weights.entity';
+import { Users } from "@fithelper/fit-helper-api//users";
+import { Weight } from "@fithelper/fit-helper-api//weights";
+
 
 export const environment = process.env.NODE_ENV || 'local';
 export const isDev = !['production', 'preprod', 'test', 'staging'].includes(
@@ -23,7 +24,7 @@ export default () => ({
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME || 'app',
-    entities: [Users, Weight],
+    entities: [Users,Weight],
     synchronize: process.env.DB_SYNCHRONIZE === 'true',
     createFixtures: isSwagger ? false : process.env.DB_FIXTURES !== 'false', // isDev,
   },

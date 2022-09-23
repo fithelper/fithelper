@@ -16,6 +16,18 @@
     "baseUrl": ".",
     "paths": {
       "@fithelper/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@fithelper/fit-helper-api//auth": [
+        "libs/fit-helper-api/auth/src/index.ts"
+      ],
+      "@fithelper/fit-helper-api//macro": [
+        "libs/fit-helper-api/macro/src/index.ts"
+      ],
+      "@fithelper/fit-helper-api//users": [
+        "libs/fit-helper-api/users/src/index.ts"
+      ],
+      "@fithelper/fit-helper-api//weights": [
+        "libs/fit-helper-api/weights/src/index.ts"
+      ],
       "@fithelper/fithelper-front/home/feature": [
         "libs/fithelper-front/home/feature/src/index.ts"
       ],

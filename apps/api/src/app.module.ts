@@ -1,10 +1,10 @@
+import { FitHelperApiAuthModule } from '@fithelper/fit-helper-api//auth';
+import { FitHelperApiUsersModule } from '@fithelper/fit-helper-api//users';
+import { FitHelperApiWeightsModule } from '@fithelper/fit-helper-api//weights';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from './configurations/app.configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './modules/user/users.module';
-import { WeightModule } from './modules/weight/weight.module';
-import { AuthModule } from './modules/auth/auth.module';
+import configuration from './configurations/app.configuration';
 
 @Module({
   imports: [
@@ -19,9 +19,9 @@ import { AuthModule } from './modules/auth/auth.module';
       useFactory: async (configService: ConfigService) =>
         configService.get('database'),
     }),
-    UsersModule,
-    WeightModule,
-    AuthModule,
+    FitHelperApiUsersModule,
+    FitHelperApiWeightsModule,
+    FitHelperApiAuthModule
   ],
 })
 export class AppModule {}
