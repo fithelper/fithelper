@@ -40,6 +40,9 @@
       "@fithelper/fithelper-front/login/feature-shell": [
         "libs/fithelper-front/login/feature-shell/src/index.ts"
       ],
+      "@fithelper/fithelper-front/register/data-access": [
+        "libs/fithelper-front/register/data-access/src/index.ts"
+      ],
       "@fithelper/fithelper-front/register/feature": [
         "libs/fithelper-front/register/feature/src/index.ts"
       ],
