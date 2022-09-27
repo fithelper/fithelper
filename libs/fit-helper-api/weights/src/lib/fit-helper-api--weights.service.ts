@@ -1,5 +1,9 @@
-import { Users } from '@fithelper/fit-helper-api//users';
-import { Injectable, NotFoundException } from '@nestjs/common';
+
+import {
+  FitHelperApiUsersService,
+  Users,
+} from '@fithelper/fit-helper-api//users';
+import { forwardRef, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateWeightDto, UpdateWeightDto, WeightOutputDto } from './dto';
@@ -10,12 +14,14 @@ export class FitHelperApiWeightsService {
   constructor(
     @InjectRepository(Weight)
     private weightRepository: Repository<Weight>,
-    @InjectRepository(Users)
-    private userRepository: Repository<Users>
+    // @InjectRepository(Users)
+    // private userRepository: Repository<Users>,
+    @Inject(forwardRef(() => FitHelperApiUsersService))
+    private readonly userService: FitHelperApiUsersService
   ) {}
 
   async fetchAllByUser(userId: string): Promise<WeightOutputDto[]> {
-    const user = await this.userRepository.findOne({
+    const user = await this.userService.userRepository.findOne({
       where: { id: userId },
       relations: ['weight'],
     });
@@ -27,7 +33,7 @@ export class FitHelperApiWeightsService {
   }
 
   async create(weight: CreateWeightDto, id: string): Promise<WeightOutputDto> {
-    const user = await this.userRepository.findOneBy({ id });
+    const user = await this.userService.userRepository.findOneBy({ id });
 
     if (!user) {
       throw new NotFoundException('user not found ! ');
@@ -49,7 +55,7 @@ export class FitHelperApiWeightsService {
     weight: UpdateWeightDto,
     id: string
   ): Promise<WeightOutputDto> {
-    const user = await this.userRepository.findOneBy({ id });
+    const user = await this.userService.userRepository.findOneBy({ id });
 
     if (!user) {
       throw new NotFoundException('user not found ! ');
@@ -75,7 +81,9 @@ export class FitHelperApiWeightsService {
   }
 
   async softRemove(id: string, userId: string): Promise<WeightOutputDto> {
-    const user = await this.userRepository.findOneBy({ id: userId });
+    const user = await this.userService.userRepository.findOneBy({
+      id: userId,
+    });
 
     if (!user) {
       throw new NotFoundException('user not found ! ');

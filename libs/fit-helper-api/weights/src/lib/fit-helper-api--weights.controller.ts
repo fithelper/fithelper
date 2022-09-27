@@ -1,4 +1,3 @@
-import { GetCurrentUserById } from '@fithelper/fit-helper-api//auth';
 import {
   Body,
   Controller,
@@ -13,6 +12,15 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation } from '@nestjs/swagger';
 import { CreateWeightDto, UpdateWeightDto, WeightOutputDto } from './dto';
 import { FitHelperApiWeightsService } from './fit-helper-api--weights.service';
+
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+
+export const GetCurrentUserById = createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) => {
+    const req = ctx.switchToHttp().getRequest();
+    return req.user?.sub;
+  }
+);
 
 @Controller('weights')
 export class FitHelperApiWeightsController {

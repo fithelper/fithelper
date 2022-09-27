@@ -8,7 +8,7 @@ import { Users } from './entities/users.entity';
 export class FitHelperApiUsersService {
   constructor(
     @InjectRepository(Users)
-    private userRepository: Repository<Users>
+    public userRepository: Repository<Users>
   ) {}
 
   create(user: CreateUserDto): Promise<UsersOutputDto> {

@@ -1,10 +1,18 @@
-import { GetCurrentUserById } from '@fithelper/fit-helper-api//auth';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation } from '@nestjs/swagger';
 import { CreateUserDto, UsersOutputDto } from './dto';
 import { Users } from './entities/users.entity';
 import { FitHelperApiUsersService } from './fit-helper-api--users.service';
+
+import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+
+export const GetCurrentUserById = createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) => {
+    const req = ctx.switchToHttp().getRequest();
+    return req.user?.sub;
+  }
+);
 
 @Controller('users')
 export class FitHelperApiUsersController {
